@@ -1,24 +1,26 @@
 <?php
-/**
- * {$文件功能说明}
- *
- * @author chenyang <chenyang@antiy.com>
- * @since 2014-4-4 18:03:56
- * @version $Id: index.php 0 2014-4-4 18:03:56 chenyang $
- * @link http://antiy.com
- * @copyright Copyright (c) 2012, Antiy.Com All rights reserved
- */
-//申明根目录
-define( 'AppRoot',   dirname( __FILE__ )   );
-//加载myengine框架
-include '../MyEngine/MyEngine.php';
+// +----------------------------------------------------------------------
+// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2006-2014 http://thinkphp.cn All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// +----------------------------------------------------------------------
+// | Author: liu21st <liu21st@gmail.com>
+// +----------------------------------------------------------------------
 
-try {
-    //session启动
-    if ( !isset( $_SESSION ) ) {
-        session_start();
-    }
-    new MyEngine();
-} catch ( Exception $exc ) {
-    echo $exc->getMessage();
-}
+// 应用入口文件
+
+// 检测PHP环境
+if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');
+
+// 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false
+define('APP_DEBUG',True);
+
+// 定义应用目录
+define('APP_PATH','./Application/');
+
+// 引入ThinkPHP入口文件
+require './ThinkPHP/ThinkPHP.php';
+
+// 亲^_^ 后面不需要任何代码了 就是如此简单
